@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Food Rescue</title>
+</head>
+<header>
+    <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="ourmotto.html">Our Motto</a>
+    <a href="aboutus.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="termsandcondition.html">Terms & Conditions</a>
+    <a href="login.html" style="color: rgb(44, 0, 72);">Login</a>
+    <a href="register.html" style="color: rgb(44, 0, 72);">Register</a>
+    <a href="index.html">
+    <img src="logo.jpeg" alt="Logo" class="logo">
+</a>
+</header>
+<div class="logo1">
+    <img src="logo.jpeg" alt="Food Rescue Logo">
+</div>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #faff6d, #fba5a5);
+    color: #333;
+}
+
+.logo1 img {
+    width: 550px;
+    margin-left: 560px;
+    height: 300px;
+    margin-top: 40px;
+    border-radius: 20px;
+    border: dotted rgb(0, 0, 125);
+}
+
+h1 {
+    text-align: center;
+    color: #2b7a78;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 0px;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #3aafa9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #2b7a78;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #3aafa9;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    bottom:auto;
+    width: 100%;
+}
+.navbar {
+    background-color: #3aafa9;
+    color: white;
+    overflow: hidden;
+    padding: 10px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.navbar a:hover {
+    background-color: #41f35948;
+    border-radius: 16px;
+    box-shadow: #333 1px 2px 3px;
+}
+
+.navbar .logo {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 50px;
+    height: auto;
+    border: 0px;
+    margin-right: 20px;
+}
+
+</style>
+<body>
+    <section class="section">
+        <h1>Register</h1>
+        <form id="registerForm">
+            <label for="userType">Register as:</label>
+            <select id="userType" name="userType" required>
+                <option value="foodGiver">Food Giver</option>
+                <option value="ngo">NGO</option>
+            </select>
+            <br>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <label for="contact">Contact Number:</label>
+            <input type="text" id="contact" name="contact" required>
+            <br>
+            <button type="submit">Register</button>
+        </form>
+    </section>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const userType = document.getElementById('userType').value;
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const contact = document.getElementById('contact').value.trim();
+
+    // Basic Validation
+    if (!name || !email || !password || !contact) {
+        alert("Please fill out all fields.");
+        return;
+    }
+
+    if (!/^\d{10}$/.test(contact)) {
+        alert("Please enter a valid 10-digit contact number.");
+        return;
+    }
+
+    // Success Message
+    alert(`Thank you for registering as a ${userType}, ${name}!`);
+    // Reset the form
+    document.getElementById('registerForm').reset();
+});
+
+    </script>
+    <footer>
+        <p>© 2024 Food Rescue | Connecting Food to People in Need</p>
+    </footer>
+</body>
+</html>
